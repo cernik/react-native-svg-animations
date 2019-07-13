@@ -25,7 +25,11 @@ class AnimatedSVGPath extends Component {
     width: PropTypes.number,
     scale: PropTypes.number,
     fill: PropTypes.string,
-    loop: PropTypes.bool
+    loop: PropTypes.bool,
+    children: PropTypes.oneOfType([
+        PropTypes.arrayOf(PropTypes.node),
+        PropTypes.node
+    ])    
   };
   
   static defaultProps = {
@@ -97,6 +101,7 @@ class AnimatedSVGPath extends Component {
           fill={fill}
           d={d}
         />
+        {this.props.children}
       </Svg>
     );
   }
